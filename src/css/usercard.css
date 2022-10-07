@@ -1,0 +1,10 @@
+.user__card{
+    border: solid 2px purple;
+    border-radius: 5pc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 50%;
+}
