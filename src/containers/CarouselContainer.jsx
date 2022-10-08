@@ -12,6 +12,7 @@ const CarouselContainer = (props) => {
   const responsive = {
     0: { items: 3 },
     568: { items: 3 },
+    1023: {items: 4},
     2048: { items: 5 },
 };
   useEffect(() => {

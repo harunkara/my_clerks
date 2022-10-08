@@ -1,10 +1,21 @@
 .user__card{
     border: solid 2px purple;
+    padding: 3%;
     border-radius: 5pc;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 50%;
-    height: 50%;
+    width: 30vw;
+    height: 50vh;
+}
+.user__card__picture{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 40pc;
+}
+.user__card__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
