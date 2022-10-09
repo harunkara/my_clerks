@@ -1,6 +1,9 @@
 import React from 'react'
 import '../css/usercard.css'
-
+import PersonIcon from '@mui/icons-material/Person';
+import MailIcon from '@mui/icons-material/Mail';
+import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 const UserCard=(props)=> {
   const {user}=props;
 
@@ -9,12 +12,10 @@ const UserCard=(props)=> {
 <div className='user__card'>
       {console.log("girdim")}
       <img className='user__card__picture' src={user?.picture?.large}/>
-        <div style={{wordWrap: 'break-word'}}>
-        <div style={{fontSize: '0,8vw'}}>Name: {user?.name?.first} {user?.name?.last}</div>
-        <span style={{fontSize:'0.9rem', wordWrap: 'break-word'}}>Email: {user?.email}</span>
-        <div style={{fontSize: '0,8vw'}}>Phone: {user?.cell}</div>
-        <div style={{fontSize: '0,8vw'}}>Location: {user?.location?.city}</div>
-        </div>
+      <div className='user__card__row'><PersonIcon className="mui__icons"></PersonIcon><span>{user?.name?.first} {user?.name?.last}</span></div>
+      <div className='user__card__row'><MailIcon className="mui__icons"></MailIcon><span>{user?.email}</span></div>
+      <div className='user__card__row'><PhoneIphoneIcon className="mui__icons"></PhoneIphoneIcon><span>{user?.cell}</span></div>
+      <div className='user__card__row'><LocationOnIcon className="mui__icons"></LocationOnIcon><span>{user?.location?.city}</span></div>
     </div>
 </div>
   )

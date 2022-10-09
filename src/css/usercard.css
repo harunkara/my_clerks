@@ -1,21 +1,64 @@
 .user__card{
+    justify-content: center;
     border: solid 2px purple;
     padding: 3%;
-    border-radius: 5pc;
+    border-radius: 3pc;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 30vw;
-    height: 50vh;
+    width: 29vw;
+    height: 35vh;
 }
 .user__card__picture{
     width: 5rem;
     height: 5rem;
     border-radius: 40pc;
 }
+@media screen and (min-width: 769px) {
+    .user__card__picture {
+        width: 11rem;
+        height: 11rem;
+    }
+}
+@media screen and (min-width: 1366px) {
+    .user__card__picture {
+        width: 8rem;
+        height: 8rem;
+    }
+}
+@media screen and (max-width: 768px) {
+    span{
+        font-weight: bold;
+        max-width: 19vw;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 3vw;
+    }
+    .mui__icons{
+        font-size: 3vw!important ;
+    }
+}
+@media screen and (min-width: 768px) {
+    .user__card{
+        height: 42vh;
+    }
+    span{
+        font-weight: bold;
+        max-width: 19vw;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 1.4vw;
+    }
+    .mui__icons{
+        font-size: 2.3vw!important ;
+    }
+}
 .user__card__container{
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+.user__card__row{
+    display: flex;
     align-items: center;
 }

@@ -11,9 +11,7 @@ const CarouselContainer = (props) => {
   const randomUsers = useSelector((state) =>state.randomUsers.data);
   const responsive = {
     0: { items: 3 },
-    568: { items: 3 },
     1023: {items: 4},
-    2048: { items: 5 },
 };
   useEffect(() => {
     dispatch(getRandomUsersAction('https://randomuser.me/api/?results=10'))
