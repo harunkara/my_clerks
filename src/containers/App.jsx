@@ -1,26 +1,26 @@
 import '../css/app.css';
-import React, { Component, useEffect } from 'react';
+import React, { Component} from 'react';
 import CarouselContainer from './CarouselContainer';
 import { Provider } from 'react-redux';
-import store from '../reducers/store'
+import store from '../reducers/store';
 class App extends Component{
     constructor() {
         super();
         this.state = {
         };
-      }
+    }
       
-  componentDidMount() {}
+    componentDidMount() {}
 
     render() {
-      return (
-        <div className="App">
-         <Provider store={store}>
-            <CarouselContainer></CarouselContainer>
-         </Provider>
-        </div>
-      );
+        return (
+            <div className="App">
+                <Provider store={store}>
+                    <CarouselContainer></CarouselContainer>
+                </Provider>
+            </div>
+        );
     }
-  }
+}
   
-  export default App;
+export default App;
