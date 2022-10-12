@@ -6,11 +6,11 @@ import MailIcon from '@mui/icons-material/Mail';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 const UserCard=(props)=> {
-    const {user}=props;
+    const {user, color}=props;
 
     return (
         <div className='user__card__container'>
-            <div className='user__card'>
+            <div className='user__card' style={{backgroundColor: color}}>
                 <img className='user__card__picture' src={user?.picture?.large}/>
                 <div className='user__card__row'>
                     <PersonIcon className="mui__icons"></PersonIcon>

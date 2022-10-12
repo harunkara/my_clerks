@@ -3,3 +3,9 @@
     text-overflow: ellipsis;
     /* width: 100%!important; */
 }
+.color__picker__container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2%;
+    align-items: center;
+}
