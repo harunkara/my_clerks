@@ -9,3 +9,9 @@
     margin-bottom: 2%;
     align-items: center;
 }
+.alice-carousel__prev-btn{
+    visibility: hidden;
+}
+.alice-carousel__next-btn{
+    visibility: hidden;
+}
