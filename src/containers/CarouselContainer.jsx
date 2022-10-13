@@ -51,7 +51,6 @@ const CarouselContainer = () => {
     }, [stateRandomUsers, color]);   
 
     if(loaderVisiblity===true){
-        console.log('loaderVisiblity===true');
         setLoaderVisibility(false);
         getUsers();
     }
@@ -59,7 +58,6 @@ const CarouselContainer = () => {
         setIndex(e.item);
         let observer= new IntersectionObserver((entries)=>{
             const entry=entries[0];
-            console.log('bura',entry.isIntersecting);
             if(entry.isIntersecting===true){
                 setLoaderVisibility(true);
             }
@@ -80,7 +78,7 @@ const CarouselContainer = () => {
                     onChange={changeColor}>
                 </input>
             </div>
-            <AliceCarousel mouseTracking items={items} disableDotsControls responsive={responsive} controlsStrategy="alternate" id={'carousel'} onSlideChanged={onSlideChanged} onSlideChange={onSlideChanged} activeIndex={index}>
+            <AliceCarousel mouseTracking items={items} disableButtonsControls disableDotsControls responsive={responsive} controlsStrategy="alternate" id={'carousel'} onSlideChanged={onSlideChanged} onSlideChange={onSlideChanged} activeIndex={index}>
             </AliceCarousel>
         </div>
     );
