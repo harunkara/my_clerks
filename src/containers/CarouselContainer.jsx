@@ -15,6 +15,8 @@ const CarouselContainer = () => {
     const [index,setIndex]=React.useState(0);
     const randomUsers = useSelector((state) =>state.randomUsers.data);
     let stateRandomUsersRef=useRef([]);
+    let loadingRef=useRef(null);
+    const [loaderVisiblity,setLoaderVisibility]=React.useState(false);
 
     const responsive = {
         0: { items: 3 },
@@ -39,24 +41,30 @@ const CarouselContainer = () => {
         let all=[];
         all=[...stateRandomUsersRef.current,...randomUsers,];
         setStateRandomUsers(all);
-        const arrayRandomUsers=[];
-        Object.entries(stateRandomUsers).map(randomUser=>arrayRandomUsers.push(<UserCard color={color} user={randomUser[1]}></UserCard>));
-        arrayRandomUsers.push(<div className='loader__container'><div className='loader'></div></div>);
-        setItems(arrayRandomUsers);
     }, [randomUsers]);
 
     useEffect(() => {
         const arrayRandomUsers=[];
         Object.entries(stateRandomUsers).map(randomUser=>arrayRandomUsers.push(<UserCard color={color} user={randomUser[1]}></UserCard>));
-        arrayRandomUsers.push(<div className='loader__container'><div className='loader'></div></div>);
+        arrayRandomUsers.push(<div className='loader__container'><div className='loader' id='loader' ref={loadingRef}></div></div>);
         setItems(arrayRandomUsers);
     }, [stateRandomUsers, color]);   
+
+    if(loaderVisiblity===true){
+        console.log('loaderVisiblity===true');
+        setLoaderVisibility(false);
+        getUsers();
+    }
     const onSlideChanged=(e)=>{
         setIndex(e.item);
-        if((document.querySelectorAll('.alice-carousel__next-btn-item.__inactive').length>0)||(e?.isNextSlideDisabled)){
-            getUsers();
-            setIndex(e.item);
-        }
+        let observer= new IntersectionObserver((entries)=>{
+            const entry=entries[0];
+            console.log('bura',entry.isIntersecting);
+            if(entry.isIntersecting===true){
+                setLoaderVisibility(true);
+            }
+        });
+        observer.observe(loadingRef.current);
     };
 
     return (
@@ -72,7 +80,7 @@ const CarouselContainer = () => {
                     onChange={changeColor}>
                 </input>
             </div>
-            <AliceCarousel mouseTracking items={items} disableDotsControls responsive={responsive} controlsStrategy="alternate" id={'carousel'} onSlideChanged={onSlideChanged} onSlideChange={onSlideChanged} activeIndex={index}>
+            <AliceCarousel mouseTracking items={items} disableDotsControls responsive={responsive} controlsStrategy="alternate" id={'carousel'} onSlideChanged={onSlideChanged} activeIndex={index}>
             </AliceCarousel>
         </div>
     );
