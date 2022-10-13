@@ -39,6 +39,10 @@ const CarouselContainer = () => {
         let all=[];
         all=[...stateRandomUsersRef.current,...randomUsers,];
         setStateRandomUsers(all);
+        const arrayRandomUsers=[];
+        Object.entries(stateRandomUsers).map(randomUser=>arrayRandomUsers.push(<UserCard color={color} user={randomUser[1]}></UserCard>));
+        arrayRandomUsers.push(<div className='loader__container'><div className='loader'></div></div>);
+        setItems(arrayRandomUsers);
     }, [randomUsers]);
 
     useEffect(() => {
