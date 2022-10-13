@@ -13,7 +13,6 @@ const CarouselContainer = () => {
     const [items,setItems]=React.useState([]);
     const [stateRandomUsers,setStateRandomUsers]=React.useState([]);
     const [index,setIndex]=React.useState(0);
-    const [activeIndex,setActiveIndex]=React.useState(0);
     const randomUsers = useSelector((state) =>state.randomUsers.data);
     let stateRandomUsersRef=useRef([]);
 
@@ -24,13 +23,11 @@ const CarouselContainer = () => {
 
     const changeColor=()=>{
         setColor(document.getElementById('color__picker').value);
-        setActiveIndex(index);
     };
 
     const getUsers=()=>{
         dispatch(getRandomUsersAction('https://randomuser.me/api/?results=10'));
         stateRandomUsersRef.current=stateRandomUsers;
-        setActiveIndex(activeIndex);
     };
 
     useEffect(() => {
@@ -50,8 +47,7 @@ const CarouselContainer = () => {
         arrayRandomUsers.push(<div className='loader__container'><div className='loader'></div></div>);
         setItems(arrayRandomUsers);
     }, [stateRandomUsers, color]);   
-    
-    const onSlideChange=(e)=>{
+    const onSlideChanged=(e)=>{
         setIndex(e.item);
         if((document.querySelectorAll('.alice-carousel__next-btn-item.__inactive').length>0)||(e?.isNextSlideDisabled)){
             getUsers();
@@ -72,7 +68,7 @@ const CarouselContainer = () => {
                     onChange={changeColor}>
                 </input>
             </div>
-            <AliceCarousel mouseTracking items={items} disableDotsControls responsive={responsive} controlsStrategy="alternate" id={'carousel'} onSlideChanged={onSlideChange} activeIndex={activeIndex}>
+            <AliceCarousel mouseTracking items={items} disableDotsControls responsive={responsive} controlsStrategy="alternate" id={'carousel'} onSlideChanged={onSlideChanged} activeIndex={index}>
             </AliceCarousel>
         </div>
     );
