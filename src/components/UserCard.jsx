@@ -9,24 +9,24 @@ const UserCard=(props)=> {
     const {user, color}=props;
 
     return (
-        <div className='user__card__container'>
-            <div className='user__card' style={{backgroundColor: color}}>
-                <img className='user__card__picture' src={user?.picture?.large}/>
+        <div className='user__card__container' data-testid='user-card-container'>
+            <div className='user__card' data-testid='div-user-card' style={{backgroundColor: color}}>
+                <img className='user__card__picture' data-testid='user-card-picture' src={user?.picture?.large}/>
                 <div className='user__card__row'>
-                    <PersonIcon className="mui__icons"></PersonIcon>
-                    <span>{user?.name?.first} {user?.name?.last}</span>
+                    <PersonIcon className="mui__icons" data-testid='person-icon'></PersonIcon>
+                    <span data-testid='name-surname-span'>{user?.name?.first} {user?.name?.last}</span>
                 </div>
                 <div className='user__card__row'>
-                    <MailIcon className="mui__icons"></MailIcon>
-                    <span>{user?.email}</span>
+                    <MailIcon className="mui__icons" data-testid='mail-icon'></MailIcon>
+                    <span data-testid='email-span'>{user?.email}</span>
                 </div>
                 <div className='user__card__row'>
-                    <PhoneIphoneIcon className="mui__icons"></PhoneIphoneIcon>
-                    <span>{user?.cell}</span>
+                    <PhoneIphoneIcon className="mui__icons" data-testid='phone-iphone-icon'></PhoneIphoneIcon>
+                    <span data-testid='cell-span'>{user?.cell}</span>
                 </div>
                 <div className='user__card__row'>
-                    <LocationOnIcon className="mui__icons"></LocationOnIcon>
-                    <span>{user?.location?.city}</span>
+                    <LocationOnIcon className="mui__icons" data-testid='location-on-icon'></LocationOnIcon>
+                    <span data-testid='location-span'>{user?.location?.city}</span>
                 </div>
             </div>
         </div>
