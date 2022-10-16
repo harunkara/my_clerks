@@ -565,18 +565,18 @@ export const getRandomUsers = () => {
 
 export const getUser = () => {
     return {
-        "name": {
-            "title": "Mr",
-            "first": "Enrique",
-            "last": "Jones"
+        'name': {
+            'title': 'Mr',
+            'first': 'Enrique',
+            'last': 'Jones'
         },
-        "location": {
-            "city": "Tamworth"
+        'location': {
+            'city': 'Tamworth'
         },
-        "email": "enrique.jones@example.com",
-        "cell": "0461-456-529",
-        "picture": {
-            "large": "https://randomuser.me/api/portraits/men/11.jpg"
+        'email': 'enrique.jones@example.com',
+        'cell': '0461-456-529',
+        'picture': {
+            'large': 'https://randomuser.me/api/portraits/men/11.jpg'
         }
-    }
-}
+    };
+};

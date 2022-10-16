@@ -24,6 +24,7 @@ const CarouselContainer = () => {
     };
 
     const changeColor=()=>{
+        console.log('changeColor',index);
         setColor(document.getElementById('color__picker').value);
     };
 
@@ -44,6 +45,7 @@ const CarouselContainer = () => {
     }, [randomUsers]);
 
     useEffect(() => {
+        console.log('useEffect [stateRandomUsers, color]',index);
         const arrayRandomUsers=[];
         Object.entries(stateRandomUsers).map(randomUser=>arrayRandomUsers.push(<UserCard color={color} user={randomUser[1]}></UserCard>));
         arrayRandomUsers.push(<div className='loader__container'><div className='loader' id='loader' ref={loadingRef}></div></div>);
@@ -56,10 +58,13 @@ const CarouselContainer = () => {
     }
     const onSlideChanged=(e)=>{
         setIndex(e.item);
+        console.log('onSlideChanged',index);
         let observer= new IntersectionObserver((entries)=>{
             const entry=entries[0];
             if(entry.isIntersecting===true){
                 setLoaderVisibility(true);
+                setIndex(e.item);
+                console.log('IntersactionObserver',index);
             } 
         });
         observer.observe(loadingRef.current);
@@ -79,7 +84,7 @@ const CarouselContainer = () => {
                     onChange={changeColor}>
                 </input>
             </div>
-            <AliceCarousel mouseTracking items={items} disableButtonsControls disableDotsControls responsive={responsive} controlsStrategy="alternate" id={'carousel'} onSlideChanged={onSlideChanged} onSlideChange={onSlideChanged} activeIndex={index}>
+            <AliceCarousel mouseTracking items={items} disableButtonsControls disableDotsControls responsive={responsive} controlsStrategy="alternate" id={'carousel'} onSlideChanged={onSlideChanged} activeIndex={index}>
             </AliceCarousel>
         </div>
     );

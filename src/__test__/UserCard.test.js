@@ -30,7 +30,7 @@ test('renders user-card-picture', () => {
 
 test('renders name and surname text truely', () => {
     const element= screen.getByTestId(/name-surname-span/i);
-    expect(element).toHaveTextContent("Enrique Jones");
+    expect(element).toHaveTextContent('Enrique Jones');
 });
 
 test('renders person-icon', () => {
@@ -40,7 +40,7 @@ test('renders person-icon', () => {
 
 test('renders image text truely', () => {
     const element= screen.getByTestId(/user-card-picture/i);
-    expect(element.src).toContain("https://randomuser.me/api/portraits/men/11.jpg");
+    expect(element.src).toContain('https://randomuser.me/api/portraits/men/11.jpg');
 });
 
 test('renders name-surname-span', () => {
@@ -50,7 +50,7 @@ test('renders name-surname-span', () => {
 
 test('renders email text truely', () => {
     const element= screen.getByTestId(/email-span/i);
-    expect(element).toHaveTextContent("enrique.jones@example.com");
+    expect(element).toHaveTextContent('enrique.jones@example.com');
 });
 
 test('renders mail-icon', () => {
@@ -65,7 +65,7 @@ test('renders email-span', () => {
 
 test('renders cell phone text truely', () => {
     const element= screen.getByTestId(/cell-span/i);
-    expect(element).toHaveTextContent("0461-456-529");
+    expect(element).toHaveTextContent('0461-456-529');
 });
 
 test('renders phone-iphone-icon', () => {
@@ -80,8 +80,8 @@ test('renders cell-span', () => {
 
 test('renders location text truely', () => {
     const element= screen.getByTestId(/location-span/i);
-    expect(element).toHaveTextContent("Tamworth");
-})
+    expect(element).toHaveTextContent('Tamworth');
+});
 
 test('renders location-on-icon', () => {
     const element= screen.getByTestId(/location-on-icon/i);

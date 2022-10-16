@@ -1,4 +1,3 @@
-import '../css/app.css';
 import React, { Component} from 'react';
 import CarouselContainer from './CarouselContainer';
 class App extends Component{
