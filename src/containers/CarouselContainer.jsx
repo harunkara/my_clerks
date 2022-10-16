@@ -60,7 +60,7 @@ const CarouselContainer = () => {
             const entry=entries[0];
             if(entry.isIntersecting===true){
                 setLoaderVisibility(true);
-            }
+            } 
         });
         observer.observe(loadingRef.current);
     };
@@ -73,6 +73,7 @@ const CarouselContainer = () => {
                 <input style={{marginLeft: '1%', borderRadius: '12px'}} 
                     type="color" 
                     className='color__picker'
+                    data-testid='color-picker'
                     id='color__picker'
                     defaultValue={'#554398'}
                     onChange={changeColor}>
