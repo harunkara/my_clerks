@@ -13,6 +13,13 @@ describe('Mocked Store', () => {
     let store;
     beforeEach(()=>{
         store = mockStore(initialState);
+        const mockIntersectionObserver = jest.fn();
+        mockIntersectionObserver.mockReturnValue({
+            observe: () => null,
+            unobserve: () => null,
+            disconnect: () => null
+        });
+        window.IntersectionObserver = mockIntersectionObserver;
         render(
             <Provider store={store}>
                 <CarouselContainer />
@@ -31,7 +38,7 @@ describe('Mocked Store', () => {
                 <CarouselContainer />
             </Provider>
         );
-        expect(container.getElementsByClassName('user__card').length).toBe(10);
+        expect(container.getElementsByClassName('user__card')).toHaveLength(10);
     });
     it('renders 40 mui-icons in first render', () => {
         const {container}=render(
@@ -39,7 +46,7 @@ describe('Mocked Store', () => {
                 <CarouselContainer />
             </Provider>
         );
-        expect(container.getElementsByClassName('mui__icons').length).toBe(40);
+        expect(container.getElementsByClassName('mui__icons')).toHaveLength(40);
     });
     it('renders color picker with purple color in first render', () => {
         expect(screen.getByDisplayValue('#554398').id).toBe('color__picker');

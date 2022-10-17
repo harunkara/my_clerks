@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRandomUsersAction } from '../actions/getRandomUsersAction';
@@ -66,6 +67,33 @@ const CarouselContainer = () => {
         setItems(arrayRandomUsers);
     }, [stateRandomUsers, color]);   
 
+    const slider=document.querySelector('.myCarousel');
+    if(slider){
+        // const slider=document.querySelector('.myCarousel');
+        let isDown=false;
+        let startX;
+        let scrollLeft;
+    
+        slider.addEventListener('mousedown',(e)=>{
+            isDown=true;
+            startX=e.pageX-slider.offsetLeft;
+            scrollLeft=slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave',()=>{
+            isDown=false;
+        });
+        slider.addEventListener('mouseup',()=>{
+            isDown=false;
+        });
+        slider.addEventListener('mousemove',(e)=>{
+            if(!isDown) return;
+            e.preventDefault();
+            const x=e.pageX-slider.offsetLeft;
+            const walk=x-startX;
+            slider.scrollLeft= scrollLeft-walk;
+        });
+    }
+
     return (
         <div>
             <h1 style={{display: 'flex', justifyContent: 'center'}}>My Clerks</h1>
@@ -80,7 +108,7 @@ const CarouselContainer = () => {
                     onChange={changeColor}>
                 </input>
             </div>
-            <div className="myCarousel" id="myCarousel">
+            <div className="myCarousel" id="myCarousel" onClick={scroll}>
                 {items.map(item=>
                     (<>
                         <div className='loader__container'>
