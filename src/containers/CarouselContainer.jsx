@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRandomUsersAction } from '../actions/getRandomUsersAction';
 import '../css/carouselcontainer.css';
-import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import UserCard from '../components/UserCard';
 
@@ -12,19 +11,15 @@ const CarouselContainer = () => {
     const [color,setColor]=React.useState('#554398');
     const [items,setItems]=React.useState([]);
     const [stateRandomUsers,setStateRandomUsers]=React.useState([]);
-    const [index,setIndex]=React.useState(0);
+    const [loaderVisibility,setLoaderVisibility]=React.useState(false);
+
     const randomUsers = useSelector((state) =>state.randomUsers.data);
+
     let stateRandomUsersRef=useRef([]);
     let loadingRef=useRef(null);
-    const [loaderVisiblity,setLoaderVisibility]=React.useState(false);
-
-    const responsive = {
-        0: { items: 3 },
-        1023: {items: 4},
-    };
+    
 
     const changeColor=()=>{
-        console.log('changeColor',index);
         setColor(document.getElementById('color__picker').value);
     };
 
@@ -32,43 +27,44 @@ const CarouselContainer = () => {
         dispatch(getRandomUsersAction('https://randomuser.me/api/?results=10'));
         stateRandomUsersRef.current=stateRandomUsers;
     };
+  
+    let options={
+        root: null,
+        rootMargin:'0px',
+        treshold: 1.0,
+    };
+    
+    const callBackFunc=(entries)=>{
+        const entry=entries[0];
+        if(entry.isIntersecting){
+            setLoaderVisibility(true);
+        }
+    };
+
+    if(loaderVisibility===true){
+        setLoaderVisibility(false);
+        getUsers();
+    }
 
     useEffect(() => {
-        dispatch(getRandomUsersAction('https://randomuser.me/api/?results=10'));
-        setStateRandomUsers(randomUsers); 
+        // dispatch(getRandomUsersAction('https://randomuser.me/api/?results=10'));
+        // setStateRandomUsers(randomUsers);
+        const observer=new IntersectionObserver(callBackFunc,options);
+        const elementToObserve = document.querySelector('#loader');
+        observer.observe(elementToObserve);
     }, []);
 
     useEffect(() => {
         let all=[];
-        all=[...stateRandomUsersRef.current,...randomUsers,];
+        all=[...stateRandomUsersRef.current,...randomUsers];
         setStateRandomUsers(all);
     }, [randomUsers]);
 
     useEffect(() => {
-        console.log('useEffect [stateRandomUsers, color]',index);
         const arrayRandomUsers=[];
         Object.entries(stateRandomUsers).map(randomUser=>arrayRandomUsers.push(<UserCard color={color} user={randomUser[1]}></UserCard>));
-        arrayRandomUsers.push(<div className='loader__container'><div className='loader' id='loader' ref={loadingRef}></div></div>);
         setItems(arrayRandomUsers);
     }, [stateRandomUsers, color]);   
-
-    if(loaderVisiblity===true){
-        setLoaderVisibility(false);
-        getUsers();
-    }
-    const onSlideChanged=(e)=>{
-        setIndex(e.item);
-        console.log('onSlideChanged',index);
-        let observer= new IntersectionObserver((entries)=>{
-            const entry=entries[0];
-            if(entry.isIntersecting===true){
-                setLoaderVisibility(true);
-                setIndex(e.item);
-                console.log('IntersactionObserver',index);
-            } 
-        });
-        observer.observe(loadingRef.current);
-    };
 
     return (
         <div>
@@ -84,8 +80,18 @@ const CarouselContainer = () => {
                     onChange={changeColor}>
                 </input>
             </div>
-            <AliceCarousel mouseTracking items={items} disableButtonsControls disableDotsControls responsive={responsive} controlsStrategy="alternate" id={'carousel'} onSlideChanged={onSlideChanged} onSlideChange={onSlideChanged} activeIndex={index}>
-            </AliceCarousel>
+            <div className="myCarousel" id="myCarousel">
+                {items.map(item=>
+                    (<>
+                        <div className='loader__container'>
+                            {item}
+                        </div>
+                    </>)
+                )}
+                <div className='loader__container'>
+                    <div className='loader' id='loader' ref={loadingRef}></div>
+                </div>
+            </div>
         </div>
     );
 };

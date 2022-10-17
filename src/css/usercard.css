@@ -8,6 +8,7 @@
     flex-direction: column;
     width: 29vw;
     height: 35vh;
+    margin-top: 10%;
 }
 .user__card__picture{
     width: 5rem;
@@ -41,6 +42,7 @@
 @media screen and (min-width: 768px) {
     .user__card{
         height: 42vh;
+        margin-top: 10%;
     }
     span{
         font-weight: bold;

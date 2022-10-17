@@ -40,3 +40,9 @@
         height: 120px;
     }
 }
+.myCarousel{
+    display: flex;
+    height: fit-content;
+    overflow-x: scroll;
+    height: 60vh;
+}
