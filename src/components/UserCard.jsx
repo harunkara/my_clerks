@@ -5,9 +5,22 @@ import PersonIcon from '@mui/icons-material/Person';
 import MailIcon from '@mui/icons-material/Mail';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 const UserCard=(props)=> {
     const {user, color}=props;
-
+    const outFunc=(id)=> {
+        var tooltip = document.getElementById(id);
+        tooltip.innerHTML = 'Copy to clipboard';
+    };
+    const copyFunc=(user,id)=>{
+        const fullName=user?.name?.first+' '+user?.name?.last;
+        const email=user?.email;
+        const cell=user?.cell;
+        const location=user?.location?.city;
+        navigator.clipboard.writeText('Full Name: '+fullName+'\nE-mail: '+email+'\nCell phone: '+cell+'\nLocation: '+location);
+        var tooltip = document.getElementById(id);
+        tooltip.innerHTML = 'Copied: ' + fullName+'\'s values!';
+    };
     return (
         <div className='user__card__container' data-testid='user-card-container'>
             <div className='user__card' data-testid='div-user-card' style={{backgroundColor: color}}>
@@ -27,6 +40,15 @@ const UserCard=(props)=> {
                 <div className='user__card__row'>
                     <LocationOnIcon className="mui__icons" data-testid='location-on-icon'></LocationOnIcon>
                     <span data-testid='location-span'>{user?.location?.city}</span>
+                </div>
+                <div className="tooltip">
+                    <button                             
+                        onMouseOut={()=>outFunc(`myTooltip${user?.login?.sha256}${user?.cell}`)}
+                        onClick={()=>copyFunc(user,`myTooltip${user?.login?.sha256}${user?.cell}`)}>
+                        <ContentCopyIcon className="mui__icons">
+                        </ContentCopyIcon>
+                        <span className="tooltiptext" id={`myTooltip${user?.login?.sha256}${user?.cell}`}>Copy to clipboard</span>
+                    </button>
                 </div>
             </div>
         </div>

@@ -37,14 +37,26 @@
         height: 42vh;
         margin-left: 16vh;
     }
+}
+@media screen and (min-width: 1023px) {
+    .loader__container{
+        height: 42vh;
+        margin-left: 26vh;
+    }
     .loader{
         width: 120px;
         height: 120px;
     }
 }
+
 @media screen and (max-width: 767px) {
     .myCarousel{
         height: 40vh !important;
+    }
+}
+@media screen and (max-width: 1023px) {
+    .myCarousel{
+        height: 47vh!important;
     }
 }
 .myCarousel{
