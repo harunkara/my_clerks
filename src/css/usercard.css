@@ -27,7 +27,8 @@
     }
 }
 @media screen and (max-width: 768px) {
-    span{
+    .span__class{
+        white-space: nowrap;
         text-align: center;
         font-weight: bold;
         max-width: 29vw;
@@ -43,7 +44,8 @@
     .user__card{
         height: 52vh;
     }
-    span{
+    .span__class{
+        white-space: nowrap;
         text-align: center;
         font-weight: bold;
         max-width: 33vw;

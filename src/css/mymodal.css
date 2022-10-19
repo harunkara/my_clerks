@@ -1,0 +1,100 @@
+.modal__container{
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFF;
+    padding: 2%;
+    z-index: 1000;
+    width: 85%;
+    height: 77%;
+}
+.modal{
+    border: solid red 2px;
+    border-radius: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background-color: rgba(0, 0, 0, .7); */
+    z-index: 1000;
+    align-content: center;
+}
+.user__card__bigger{
+    justify-content: center;
+    padding: 6%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 80vw;
+    height: 45vh;
+}
+.user__card__picture__bigger{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 40pc;
+}
+@media screen and (min-width: 769px) {
+    .user__card__picture__bigger {
+        width: 15rem;
+        height: 15rem;
+    }
+}
+@media screen and (min-width: 1366px) {
+    .user__card__picture__bigger {
+        width: 16rem;
+        height: 16rem;
+    }
+}
+@media screen and (max-width: 768px) {
+    .span__class__bigger{
+        white-space: nowrap;
+        text-align: center;
+        font-weight: bold;
+        max-width: 70vw;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 3.5vw;
+    }
+    .mui__icons__bigger{
+        font-size: 6vw!important ;
+    }
+}
+@media screen and (min-width: 768px) {
+    .user__card__bigger{
+        height: 65vh;
+    }
+    .span__class__bigger{
+        white-space: nowrap;
+        text-align: center;
+        font-weight: bold;
+        max-width: 70vw;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 4vw;
+    }
+    .mui__icons__bigger{
+        font-size: 4.6vw!important ;
+    }
+}
+@media screen and (max-width: 1023px) {
+    .user__card__bigger{
+        height: 55vh;
+    }
+}
+@media screen and (min-width: 1023px) {
+    .modal__container{
+        width: 90%;
+        height: 90%;
+    }
+}
+.user__card__container__bigger{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user__card__row__bigger{
+    display: flex;
+    align-items: center;
+}
