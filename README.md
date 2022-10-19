@@ -39,10 +39,15 @@ Steps to Run the Project(Summary)
 Steps to Run the Tests of the Project
 
 There are three test files in the project. You can run them all or seperately. To run them seperately you can run:
+
 •	‘npm run test CarouselContainer.test.js’ command on ..\my_clerks directory.
+
 •	‘npm run test UserCard.test.js’ command on ..\my_clerks directory.
+
 •	‘npm run test MyModal.test.js’ command on ..\my_clerks directory.
+
 To run them all:
+
 •	‘npm run test --all’ command on ..\my_clerks directory.
 
 
