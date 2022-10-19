@@ -8,6 +8,7 @@ What I knew while doing the project and what I learned by researching were very 
 
 
 Summary of Technologies Used
+
 React.js: To create user interface and perform render management effectively.
 HTML: To create components with HTML elements like div, button, span and more.
 CSS: To beautify the HTML elements and to create responsive components/containers.
@@ -21,11 +22,13 @@ Jest: To test the written components and containers.
 
 
 How To Run the Project
+
 First, the project should be downloaded from https://github.com/harunkara/my_clerks or as a zip. (Note: The repository is private, only opened for harunkara and SokratisVidros). Then unzip it and go to ..\my_clerks directory via terminal or cmd. The 'npm install' command should be run via terminal or cmd. Then, with the 'npm run start' command, the project will be running at http://localhost:3000/.
 The project has been uploaded to https://my-clerks.herokuapp.com/ just in case. (Note: because heroku server is a free server, it puts sites to sleep when not logged in for a long time. Please wait for 30-40 seconds, heroku will stand up.). In fact, while the project was being developed, the CI/CD structure was used and after each commit, the project was checked to see how it looks on other devices.
 
 
 Steps to Run the Project(Summary)
+
 1.	Download the project.
 2.	Unzip the project(if you use ‘git clone https://github.com/harunkara/my_clerks’ command you can pass this step).
 3.	Go to ..\my_clerks directory via cmd or terminal.
@@ -34,6 +37,7 @@ Steps to Run the Project(Summary)
 
 
 Steps to Run the Tests of the Project
+
 There are three test files in the project. You can run them all or seperately. To run them seperately you can run:
 •	‘npm run test CarouselContainer.test.js’ command on ..\my_clerks directory.
 •	‘npm run test UserCard.test.js’ command on ..\my_clerks directory.
@@ -44,7 +48,8 @@ To run them all:
 
 Folders and files of the Project
 
-Folder:
+Folders:
+
 __test__ : Includes all test classes(wrote with jest).
 actions: Includes the files that sends the request. 
 components: Classes containing the smallest component. 
@@ -53,6 +58,7 @@ css: Contains all css files that beautifies the components.
 reducers: Contains store and reducer classes that catches the response of the requests.
 
 Files:
+
 CarouselContainer.test.js: Includes all test cases of the CarouselContainer container.
 commonFunctions: Includes mock datas to use in tests.
 MyModal.test.js: Includes all test cases of the MyModal component.
