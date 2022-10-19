@@ -43,31 +43,30 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import '../css/mymodal.css';
 import CancelIcon from '@mui/icons-material/Cancel';
-
+import PhoneIcon from '@mui/icons-material/Phone';
 class MyModal extends PureComponent {
 
     constructor(props) {
         super(props);
         this.state = {
-            // isModalOpen: false,
         };
-    }
-      
-    componentDidMount() {
-    //     const { fetchEducations, isModalOpen } = this.props;
-    // // fetchEducations();
-        console.log('hayır');
-    }
-
-    componentDidUpdate(prevProps) {
-        // const { submitSuccess } = this.props;
-        // if (prevProps.submitSuccess !== submitSuccess && submitSuccess) {
-        //     if (this.state.isModalOpen) {
-        //         this.toggle();
-        //     }
-        // }
-    }
-
+    } 
+    outFunc=(id)=> {
+        var tooltip = document.getElementById(id);
+        tooltip.innerHTML = 'Copy to clipboard';
+    };
+    copyFunc=(user,id)=>{
+        console.log('I am here');
+        const fullName=user?.name?.title+' '+user?.name?.first+' '+user?.name?.last;
+        const email=user?.email;
+        const cell=user?.cell;
+        const homePhone=user?.phone;
+        const location=user?.location?.country+', '+user?.location?.city;
+        navigator.clipboard.writeText('Full Name: '+fullName+'\nE-mail: '
+        +email+'\nCell phone: '+cell+'\nHome phone: '+homePhone+'\nLocation: '+location);
+        var tooltip = document.getElementById(id);
+        tooltip.innerHTML = 'Copied: ' + fullName+'\'s values!';
+    };
     render() {
         const {open,closeModal,user,color}=this.props;
         if(!open) return null;
@@ -92,8 +91,22 @@ class MyModal extends PureComponent {
                                 <span className='span__class__bigger' data-testid='cell-span'>{user?.cell}</span>
                             </div>
                             <div className='user__card__row__bigger'>
+                                <PhoneIcon className="mui__icons__bigger" data-testid='home-phone-icon'></PhoneIcon>
+                                <span className='span__class__bigger' data-testid='home-phone-span'>{user?.phone}</span>
+                            </div>
+                            <div className='user__card__row__bigger'>
                                 <LocationOnIcon className="mui__icons__bigger" data-testid='location-on-icon'></LocationOnIcon>
                                 <span className='span__class__bigger' data-testid='location-span'>{user?.location?.country}, {user?.location?.city}</span>
+                            </div>
+                            <div className="tooltip">
+                                <button 
+                                    style={{borderRadius:'10px'}}                            
+                                    onMouseOut={()=>this.outFunc(`myTooltip${user?.login?.sha256}${user?.cell}${user?.phone}`)}
+                                    onClick={()=>this.copyFunc(user,`myTooltip${user?.login?.sha256}${user?.cell}${user?.phone}`)}>
+                                    <ContentCopyIcon className="mui__icons">
+                                    </ContentCopyIcon>
+                                    <span className="tooltiptext" id={`myTooltip${user?.login?.sha256}${user?.cell}${user?.phone}`}>Copy to clipboard</span>
+                                </button>
                             </div>
                         </div>
                     </div>

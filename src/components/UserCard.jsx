@@ -20,7 +20,7 @@ const UserCard=(props)=> {
         const fullName=user?.name?.first+' '+user?.name?.last;
         const email=user?.email;
         const cell=user?.cell;
-        const location=user?.location?.city;
+        const location=user?.location?.country;
         navigator.clipboard.writeText('Full Name: '+fullName+'\nE-mail: '+email+'\nCell phone: '+cell+'\nLocation: '+location);
         var tooltip = document.getElementById(id);
         tooltip.innerHTML = 'Copied: ' + fullName+'\'s values!';
