@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import UserCard from '../components/UserCard';
 import '@testing-library/jest-dom';
 import {getUser} from './commonFunctions';
+import MyModal from '../components/MyModal';
 
 beforeEach(()=>{
-    render(<UserCard color='blue' user={getUser()}/>);
+    render(<MyModal open={true} color='blue' user={getUser()}/>);
 });
   
 test('renders user-card-container', () => {
@@ -73,6 +73,16 @@ test('renders phone-iphone-icon', () => {
     expect(element).toBeInTheDocument();
 });
 
+test('renders home phone text truely', () => {
+    const element= screen.getByTestId(/home-phone-span/i);
+    expect(element).toHaveTextContent('797 777 7121');
+});
+
+test('renders home-phone-icon', () => {
+    const element= screen.getByTestId(/home-phone-icon/i);
+    expect(element).toBeInTheDocument();
+});
+
 test('renders cell-span', () => {
     const element= screen.getByTestId(/cell-span/i);
     expect(element).toBeInTheDocument();
@@ -80,7 +90,7 @@ test('renders cell-span', () => {
 
 test('renders location text truely', () => {
     const element= screen.getByTestId(/location-span/i);
-    expect(element).toHaveTextContent('Greece');
+    expect(element).toHaveTextContent('Greece, Athens');
 });
 
 test('renders location-on-icon', () => {

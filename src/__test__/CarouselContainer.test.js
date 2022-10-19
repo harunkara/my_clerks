@@ -40,13 +40,13 @@ describe('Mocked Store', () => {
         );
         expect(container.getElementsByClassName('user__card')).toHaveLength(10);
     });
-    it('renders 40 mui-icons in first render', () => {
+    it('renders 60 mui-icons in first render', () => {
         const {container}=render(
             <Provider store={store}>
                 <CarouselContainer />
             </Provider>
         );
-        expect(container.getElementsByClassName('mui__icons')).toHaveLength(40);
+        expect(container.getElementsByClassName('mui__icons')).toHaveLength(60);
     });
     it('renders color picker with purple color in first render', () => {
         expect(screen.getByDisplayValue('#554398').id).toBe('color__picker');

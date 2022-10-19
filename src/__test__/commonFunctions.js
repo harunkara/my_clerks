@@ -571,10 +571,12 @@ export const getUser = () => {
             'last': 'Jones'
         },
         'location': {
-            'city': 'Tamworth'
+            'country': 'Greece',
+            'city': 'Athens'
         },
         'email': 'enrique.jones@example.com',
         'cell': '0461-456-529',
+        'phone': '797 777 7121',
         'picture': {
             'large': 'https://randomuser.me/api/portraits/men/11.jpg'
         }

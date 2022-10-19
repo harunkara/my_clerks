@@ -37,26 +37,26 @@
 }
 @media screen and (min-width: 769px) {
     .user__card__picture__bigger {
-        width: 15rem;
-        height: 15rem;
+        width: 12rem;
+        height: 12rem;
     }
 }
-@media screen and (min-width: 1366px) {
+@media screen and (min-width: 1367px) {
     .user__card__picture__bigger {
-        width: 16rem;
-        height: 16rem;
+        width: 13rem;
+        height: 13rem;
     }
+}
+.span__class__bigger{
+    white-space: nowrap;
+    text-align: center;
+    font-weight: bold;
+    max-width: 70vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 3.5vw;
 }
 @media screen and (max-width: 768px) {
-    .span__class__bigger{
-        white-space: nowrap;
-        text-align: center;
-        font-weight: bold;
-        max-width: 70vw;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        font-size: 3.5vw;
-    }
     .mui__icons__bigger{
         font-size: 6vw!important ;
     }
@@ -64,15 +64,6 @@
 @media screen and (min-width: 768px) {
     .user__card__bigger{
         height: 65vh;
-    }
-    .span__class__bigger{
-        white-space: nowrap;
-        text-align: center;
-        font-weight: bold;
-        max-width: 70vw;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        font-size: 4vw;
     }
     .mui__icons__bigger{
         font-size: 4.6vw!important ;
