@@ -9,16 +9,17 @@ What I knew while doing the project and what I learned by researching were very 
 
 Summary of Technologies Used
 
-React.js: To create user interface and perform render management effectively.
-HTML: To create components with HTML elements like div, button, span and more.
-CSS: To beautify the HTML elements and to create responsive components/containers.
-Eslint: To ensure sintax management and clean code writing.
-MUI: To reach the understandable icons that beautify the components.
-Redux: To provide state management.
-Axios: To send HTTP requests.
-Hooks: To be able to use state and lifecycle properties in React without writing a class.
-Class-Component: Not to forget to use the old React structure. Because even on Facebook, there are still codes written with Class-components and this is stated in the React document.
-Jest: To test the written components and containers.
+1.	React.js: To create user interface and perform render management effectively.
+2.	HTML: To create components with HTML elements like div, button, span and more.
+3.	CSS: To beautify the HTML elements and to create responsive components/containers.
+4.	Eslint: To ensure sintax management and clean code writing.
+5.	MUI: To reach the understandable icons that beautify the components.
+6.	Redux: To provide state management.
+7.	Axios: To send HTTP requests.
+8.	Hooks: To be able to use state and lifecycle properties in React without writing a class.
+9.	Class-Component: Not to forget to use the old React structure. Because even on Facebook, there are still codes written with Class-components and this is stated in the React document.
+10.	Jest: To test the written components and containers.
+
 
 
 How To Run the Project
@@ -55,32 +56,33 @@ Folders and files of the Project
 
 Folders:
 
-__test__ : Includes all test classes(wrote with jest).
-actions: Includes the files that sends the request. 
-components: Classes containing the smallest component. 
-containers: Bigger components that contains other components inside.
-css: Contains all css files that beautifies the components. 
-reducers: Contains store and reducer classes that catches the response of the requests.
+1.	__test__ : Includes all test classes(wrote with jest).
+2.	actions: Includes the files that sends the request. 
+3.	components: Classes containing the smallest component. 
+4.	containers: Bigger components that contains other components inside.
+5.	css: Contains all css files that beautifies the components. 
+6.	reducers: Contains store and reducer classes that catches the response of the requests.
 
 Files:
 
-CarouselContainer.test.js: Includes all test cases of the CarouselContainer container.
-commonFunctions: Includes mock datas to use in tests.
-MyModal.test.js: Includes all test cases of the MyModal component.
-UserCard.test.js: Includes all test cases of the UserCard component.
-getRandomUsersAction.js: The file where we send the request.
-MyModal.jsx: The modal(pop-up) to see the details of the user.
-UserCard.jsx: The component which is used by the carousel to reflect the user datas.
-App.jsx: The main wrapper of the project.
-CarouselContainer.jsx: The carousel to reflect the UserCards like slider.
-carouselcontainer.css: All css codes used to format CarouselContainer.
-index.css: All css codes used to format index file.
-mymodal.css: All css codes used to format MyModal component.
-usercard.css: All css codes used to format UserCard component.
-getRandomUsersReducer.js: The file to catch the responses of the requests.
-store.js: The file where we store the responses of the requests.
-setupTest.js: The file where we import the jest library.
-.eslintrc.json: The configuration file for the eslint.
-babel.config.js: The configuration file for the babel.
-fileMock.js: The configuration file for the webpack.
-package.json: All npm packages and their versions(This file is used by ‘npm install’ command to install true versions of npm packages).
+
+1.	CarouselContainer.test.js: Includes all test cases of the CarouselContainer container.
+2.	commonFunctions: Includes mock datas to use in tests.
+3.	MyModal.test.js: Includes all test cases of the MyModal component.
+4.	UserCard.test.js: Includes all test cases of the UserCard component.
+5.	getRandomUsersAction.js: The file where we send the request.
+6.	MyModal.jsx: The modal(pop-up) to see the details of the user.
+7.	UserCard.jsx: The component which is used by the carousel to reflect the user datas.
+8.	App.jsx: The main wrapper of the project.
+9.	CarouselContainer.jsx: The carousel to reflect the UserCards like slider.
+10.	carouselcontainer.css: All css codes used to format CarouselContainer.
+11.	index.css: All css codes used to format index file.
+12.	mymodal.css: All css codes used to format MyModal component.
+13.	usercard.css: All css codes used to format UserCard component.
+14.	getRandomUsersReducer.js: The file to catch the responses of the requests.
+15.	store.js: The file where we store the responses of the requests.
+16.	setupTest.js: The file where we import the jest library.
+17.	.eslintrc.json: The configuration file for the eslint.
+18.	babel.config.js: The configuration file for the babel.
+19.	fileMock.js: The configuration file for the webpack.
+20.	package.json: All npm packages and their versions(This file is used by ‘npm install’ command to install true versions of npm packages).
